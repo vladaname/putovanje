@@ -1,0 +1,18 @@
+package com.example.putovanje.serviceImpl;
+
+import org.springframework.stereotype.Service;
+
+import com.example.putovanje.DTO.KorisnikDTO;
+import com.example.putovanje.service.Korisnik;
+import com.example.putovanje.service.KorisnikService;
+
+@Service
+public class KorisnikServiceImpl implements KorisnikService {
+
+	@Override
+	public Korisnik createKorisnik(KorisnikDTO korisnikDTO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

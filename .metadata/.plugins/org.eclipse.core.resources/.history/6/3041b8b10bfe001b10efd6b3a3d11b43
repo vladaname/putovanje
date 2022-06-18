@@ -1,0 +1,57 @@
+package com.example.putovanje.controllers;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.putovanje.DTO.TripDTO;
+import com.example.putovanje.model.Trip;
+import com.example.putovanje.service.TripService;
+
+import jdk.jfr.Registered;
+
+@RestController
+public class TripController {
+	
+	@Autowired
+	TripService tripService;
+	
+	@PostMapping("/createTrip")
+	public String createTrip(@RequestBody TripDTO tripDTO) {
+		
+		Trip t = tripService.createTrip(tripDTO);
+		if(t != null) {
+			return "Trip created.";
+			
+		}
+		else {
+			return "Tray again.";
+		}
+		
+	}
+	
+	@GetMapping("/listFutureTrip")
+	public List<Trip> listFutureTrip(@PathVariable Date startDate){
+		
+		List<Trip> findAllFuterTrips = tripService.futerTrips(startDate);
+		if(findAllFuterTrips != null) {
+			return findAllFuterTrips;
+		}
+		else {
+			return null;
+		}
+		
+	}
+	
+	
+	
+
+}

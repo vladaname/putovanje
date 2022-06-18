@@ -1,0 +1,87 @@
+package com.example.putovanje.model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+import java.util.Date;
+
+
+/**
+ * The persistent class for the trip database table.
+ * 
+ */
+@Entity
+@NamedQuery(name="Trip.findAll", query="SELECT t FROM Trip t")
+public class Trip implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int idTrip;
+
+	@Column(name="comment_2")
+	private String comment2;
+
+	private String destination;
+
+	@Temporal(TemporalType.DATE)
+	private Date endDate;
+
+	@Temporal(TemporalType.DATE)
+	private Date startDate;
+
+	//bi-directional many-to-one association to Korisnik
+	@ManyToOne
+	private Korisnik korisnik;
+
+	public Trip() {
+	}
+
+	public int getIdTrip() {
+		return this.idTrip;
+	}
+
+	public void setIdTrip(int idTrip) {
+		this.idTrip = idTrip;
+	}
+
+	public String getComment2() {
+		return this.comment2;
+	}
+
+	public void setComment2(String comment2) {
+		this.comment2 = comment2;
+	}
+
+	public String getDestination() {
+		return this.destination;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+	public Date getEndDate() {
+		return this.endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public Date getStartDate() {
+		return this.startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Korisnik getKorisnik() {
+		return this.korisnik;
+	}
+
+	public void setKorisnik(Korisnik korisnik) {
+		this.korisnik = korisnik;
+	}
+
+}

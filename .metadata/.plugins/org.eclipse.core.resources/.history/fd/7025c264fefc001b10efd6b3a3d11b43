@@ -1,0 +1,10 @@
+package com.example.putovanje.serviceImpl;
+
+import org.springframework.stereotype.Service;
+
+import com.example.putovanje.service.KorisnikService;
+
+@Service
+public class KorisnikServiceImpl implements KorisnikService {
+
+}

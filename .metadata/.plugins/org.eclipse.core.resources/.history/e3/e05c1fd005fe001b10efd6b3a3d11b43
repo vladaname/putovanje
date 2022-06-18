@@ -1,0 +1,13 @@
+package com.example.putovanje.service;
+
+import java.util.List;
+
+import com.example.putovanje.DTO.TripDTO;
+import com.example.putovanje.model.Trip;
+
+public interface TripService {
+
+	Trip createTrip(TripDTO tripDTO);
+
+
+}

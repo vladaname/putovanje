@@ -1,0 +1,22 @@
+package com.example.putovanje.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.putovanje.DTO.KorisnikDTO;
+import com.example.putovanje.service.KorisnikService;
+
+@RestController
+public class KorisnikController {
+	
+	@Autowired
+	KorisnikService korisnikService;
+	
+	@PostMapping("/createKorisnik")
+	public String createKorisnik(@RequestBody KorisnikDTO korisnikDTO) {
+		Korisnik k = korisnikService.createKorisnik(korisnikDTO);
+	}
+
+}

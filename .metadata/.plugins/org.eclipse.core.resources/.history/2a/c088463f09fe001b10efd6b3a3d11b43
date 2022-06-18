@@ -1,0 +1,36 @@
+package com.example.putovanje.serviceImpl;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.putovanje.DTO.TripDTO;
+import com.example.putovanje.model.Trip;
+import com.example.putovanje.repository.TripRepository;
+import com.example.putovanje.service.TripService;
+
+@Service
+public class TripServiceImpl implements TripService{
+	
+	@Autowired
+	TripRepository tripRepository;
+
+	@Override
+	public Trip createTrip(TripDTO tripDTO) {
+		Trip t = new Trip();
+		t.setDestination(tripDTO.getDestination());
+		Date date = new Date();
+		t.setStartDate(date);
+		t.setEndDate(tripDTO.getEndDate());
+		t.setComment2(tripDTO.getComment2());
+		
+		return tripRepository.saveAndFlush(t);
+	}
+
+	
+
+	
+
+}

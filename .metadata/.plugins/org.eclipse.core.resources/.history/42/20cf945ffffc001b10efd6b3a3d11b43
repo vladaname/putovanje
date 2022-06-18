@@ -1,0 +1,26 @@
+package com.example.putovanje.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.putovanje.DTO.KorisnikDTO;
+import com.example.putovanje.model.Korisnik;
+import com.example.putovanje.repository.KorisnikRepository;
+import com.example.putovanje.service.KorisnikService;
+
+@Service
+public class KorisnikServiceImpl implements KorisnikService {
+	
+	@Autowired
+	KorisnikRepository korisnikRepository;
+
+	@Override
+	public Korisnik createKorisnik(KorisnikDTO korisnikDTO) {
+		// TODO Auto-generated method stub
+		
+		Korisnik checkKorsink = korisnikRepository.findByUsername(korisnikDTO.getUsername());
+		return null;
+	}
+
+
+}

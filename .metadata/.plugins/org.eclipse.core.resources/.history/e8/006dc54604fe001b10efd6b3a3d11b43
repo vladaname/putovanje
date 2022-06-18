@@ -1,0 +1,10 @@
+package com.example.putovanje.service;
+
+import com.example.putovanje.DTO.TripDTO;
+import com.example.putovanje.model.Trip;
+
+public interface TripService {
+
+	Trip createTrip(TripDTO tripDTO);
+
+}
